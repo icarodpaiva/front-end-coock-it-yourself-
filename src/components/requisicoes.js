@@ -1,7 +1,7 @@
 const requisicoes = {
   cadastrar: async recipe => {
     const rawResponse = await fetch(
-      "https://cook-it-yourself.herokuapp.com/recipe",
+      "https://cook-it-yourself-back-end.herokuapp.com/recipe",
       {
         method: "POST",
         headers: {
@@ -17,7 +17,7 @@ const requisicoes = {
   },
   ultima: async () => {
     const rawResponse = await fetch(
-      "https://cook-it-yourself.herokuapp.com/last"
+      "https://cook-it-yourself-back-end.herokuapp.com/last"
     )
     const content = await rawResponse.json()
 
@@ -25,7 +25,7 @@ const requisicoes = {
   },
   geral: async () => {
     const rawResponse = await fetch(
-      "https://cook-it-yourself.herokuapp.com/recipe"
+      "https://cook-it-yourself-back-end.herokuapp.com/recipe"
     )
     const content = await rawResponse.json()
 
@@ -33,7 +33,7 @@ const requisicoes = {
   },
   nome: async nome => {
     const rawResponse = await fetch(
-      `https://cook-it-yourself.herokuapp.com/name/${nome}`
+      `https://cook-it-yourself-back-end.herokuapp.com/name/${nome}`
     )
     const content = await rawResponse.json()
 
@@ -41,7 +41,7 @@ const requisicoes = {
   },
   ingredientes: async ingredientes => {
     const rawResponse = await fetch(
-      `https://cook-it-yourself.herokuapp.com/ingredients/${ingredientes}/`
+      `https://cook-it-yourself-back-end.herokuapp.com/ingredients/${ingredientes}/`
     )
     const content = await rawResponse.json()
 
@@ -49,7 +49,7 @@ const requisicoes = {
   },
   inregredientesRestrito: async ingredientes => {
     const rawResponse = await fetch(
-      `https://cook-it-yourself.herokuapp.com/ingredients/${ingredientes}/restricted`
+      `https://cook-it-yourself-back-end.herokuapp.com/ingredients/${ingredientes}/restricted`
     )
     const content = await rawResponse.json()
 
@@ -57,7 +57,7 @@ const requisicoes = {
   },
   utensilios: async tools => {
     const rawResponse = await fetch(
-      `https://cook-it-yourself.herokuapp.com/tools/${tools}/`
+      `https://cook-it-yourself-back-end.herokuapp.com/tools/${tools}/`
     )
     const content = await rawResponse.json()
 
@@ -65,7 +65,7 @@ const requisicoes = {
   },
   utensiliosRestrito: async tools => {
     const rawResponse = await fetch(
-      `https://cook-it-yourself.herokuapp.com/tools/${tools}/restricted`
+      `https://cook-it-yourself-back-end.herokuapp.com/tools/${tools}/restricted`
     )
     const content = await rawResponse.json()
 
@@ -73,7 +73,7 @@ const requisicoes = {
   },
   time: async (timeUnit, timeQuantity) => {
     const rawResponse = await fetch(
-      `https://cook-it-yourself.herokuapp.com/time/${timeUnit}/${timeQuantity}/`
+      `https://cook-it-yourself-back-end.herokuapp.com/time/${timeUnit}/${timeQuantity}/`
     )
     const content = await rawResponse.json()
 
@@ -81,7 +81,7 @@ const requisicoes = {
   },
   timeRestrito: async (timeUnit, timeQuantity) => {
     const rawResponse = await fetch(
-      `https://cook-it-yourself.herokuapp.com/time/${timeUnit}/${timeQuantity}/restricted`
+      `https://cook-it-yourself-back-end.herokuapp.com/time/${timeUnit}/${timeQuantity}/restricted`
     )
     const content = await rawResponse.json()
 
@@ -89,7 +89,7 @@ const requisicoes = {
   },
   alterar: async (id, recipe) => {
     const rawResponse = await fetch(
-      `https://cook-it-yourself.herokuapp.com/recipe/${id}`,
+      `https://cook-it-yourself-back-end.herokuapp.com/recipe/${id}`,
       {
         method: "PUT",
         headers: {
@@ -105,16 +105,19 @@ const requisicoes = {
   },
   id: async id => {
     const rawResponse = await fetch(
-      `https://cook-it-yourself.herokuapp.com/id/${id}`
+      `https://cook-it-yourself-back-end.herokuapp.com/id/${id}`
     )
     const content = await rawResponse.json()
 
     return content
   },
   delete: async id => {
-    await fetch(`https://cook-it-yourself.herokuapp.com/recipe/${id}`, {
-      method: "DELETE"
-    })
+    await fetch(
+      `https://cook-it-yourself-back-end.herokuapp.com/recipe/${id}`,
+      {
+        method: "DELETE"
+      }
+    )
   }
 }
 export default requisicoes
